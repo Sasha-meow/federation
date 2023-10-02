@@ -1,9 +1,9 @@
 import { Button } from "antd";
-import { useGetCompaniesQuery } from "../../api/companies";
+import { useGetPokemonsQuery } from "../../api/pokemons";
 import { useMemo } from "react";
 
 export const ButtonCustom = () => {
-        const { isFetching, isError, refetch } = useGetCompaniesQuery(undefined);
+    const { isFetching, isError, refetch } = useGetPokemonsQuery(undefined);
 
     const content = useMemo(() => {
         if (isFetching) {

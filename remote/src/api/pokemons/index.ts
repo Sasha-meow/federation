@@ -4,7 +4,7 @@ export const pokemonApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getPokemons: builder.query<any, undefined>({
       query: (params) => ({
-        url: `/`,
+        url: "location/",
         method: "GET",
         params,
       }),
