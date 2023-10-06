@@ -1,24 +1,27 @@
 import { Button } from "antd";
-import { useGetPokemonsQuery } from "../../api/pokemons";
 import { useMemo } from "react";
+//@ts-ignore
+import { useDispatch } from "react-redux";
+//@ts-ignore
+import { baseApi, useGetPokemonsQuery } from "../../api";
 
 export const ButtonCustom = () => {
-    const { isFetching, isError, refetch } = useGetPokemonsQuery(undefined);
+    // const dispatch = useDispatch();
+    const { refetch } = useGetPokemonsQuery(undefined);
 
     const content = useMemo(() => {
-        if (isFetching) {
-            return "loading...";
-        }
-
-        if (isError) {
-            return "ERROR!";
-        }
-
         return "Click!";
-    }, [isFetching, isError]);
+    }, []);
+
+    const handleClick = async () => {
+        refetch();
+        //@ts-ignore
+        // const { data } = await dispatch(baseApi.endpoints.getPokemons.initiate(undefined));
+        // console.log(data);
+    }
 
     return (
-        <Button onClick={() => refetch()}>
+        <Button onClick={handleClick}>
             {content}
         </Button>
     )

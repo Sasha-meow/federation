@@ -5,5 +5,15 @@ export const baseApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "https://pokeapi.co/api/v2/",
   }),
-  endpoints: () => ({}),
+  endpoints: (builder) => ({
+    getPokemons: builder.query<any, undefined>({
+      query: (params) => ({
+        url: "location/",
+        method: "GET",
+        params,
+      }),
+    }),
+  }),
 });
+
+export const { useGetPokemonsQuery, useLazyGetPokemonsQuery } = baseApi;

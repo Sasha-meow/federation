@@ -1,14 +1,7 @@
-// import { ConfigProvider } from "antd"
-import { Provider } from "react-redux"
-import { setupStore } from "./store/store"
-
 import MainContent from "./component/MainContent/component"
-
-const store = setupStore();
 
 function App() {
   return (
-    <Provider store={store}>
     <div className="App">
       <div>
         <a href="https://vitejs.dev" target="_blank">
@@ -25,8 +18,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-      </div>
-      </Provider>
+    </div>
   )
 }
 
