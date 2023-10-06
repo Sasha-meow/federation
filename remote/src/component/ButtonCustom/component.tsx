@@ -2,12 +2,11 @@ import { Button } from "antd";
 import { useMemo } from "react";
 //@ts-ignore
 import { useDispatch } from "react-redux";
-//@ts-ignore
-import { baseApi, useGetPokemonsQuery } from "../../api";
+import { baseApi } from "../../api";
 
 export const ButtonCustom = () => {
     // const dispatch = useDispatch();
-    const { refetch } = useGetPokemonsQuery(undefined);
+    const { refetch } = baseApi.useGetPokemonsQuery(undefined);
 
     const content = useMemo(() => {
         return "Click!";
